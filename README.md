@@ -19,6 +19,13 @@ Sketch Off is a fun drawing game for two players. Each player gets a random word
 - [ ] Styling: Apply CSS for better visual appeal (nice-to-have).
 - [ ] Deployment: Prepare and deploy the application to a live environment.
 
+## Nice-to-haves
+
+- [ ] Responsive design
+- [ ] Animated logo
+- [ ] Adjustable pencil opacity
+
+
 ## Routes
 
 - [ ] "/": Homepage where users can start a new drawing game.
