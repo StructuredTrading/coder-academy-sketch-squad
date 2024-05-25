@@ -7,10 +7,6 @@ main {
     flex: 1;
 }
 
-main img {
-    width: 100%;
-}
-
 nav {
     /* Arranges the nav links vertically */
     display: flex;
