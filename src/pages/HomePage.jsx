@@ -9,8 +9,8 @@ export default function HomePage() {
         <main>
             <Logo />
             <nav>
-                <Link to={"/GamePage"}>Start Game</Link>
-                <Link to={"/AboutPage"}>About</Link>
+                <Link to={"/play"}>Start Game</Link>
+                <Link to={"/about"}>About</Link>
             </nav>
         </main>
     </>
