@@ -24,6 +24,7 @@ Sketch Off is a fun drawing game for two players. Each player gets a random word
 - [ ] Responsive design
 - [ ] Animated logo
 - [ ] Adjustable pencil opacity
+- [ ] Theme toggle
 
 
 ## Routes
