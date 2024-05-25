@@ -1,56 +1,27 @@
+/* Custom font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
 
 
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100vh; /* Ensures body takes minimum full height of the viewport */
+  /* Centres content horizontally and vertically */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  font-family: "Cabin Sketch", sans-serif;
+  font-family: "Cabin Sketch", sans-serif; /* Custom font */
   font-weight: 700;
   color: black;
   background-color: #FFFCEB;
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-main {
+  /* Centers content within the root element */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1;
-}
-
-nav {
-  display: flex;
-  flex-direction: column;
-
-  a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.75rem;
-    margin: 0.75rem;
-    border: 1px solid;
-    padding: 0.5rem;
-    border-radius: 25px;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
-  }
-
-  a:hover {
-    background-color: rgb(255, 215, 0, 0.5);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    transition: all ease-in 0.3s;
-  }
+  flex: 1; /* Allows it to grow and fill the remaining space */
 }

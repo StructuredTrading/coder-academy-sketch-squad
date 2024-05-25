@@ -1,0 +1,37 @@
+main {
+    /* Centres the content horizontally and vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+nav {
+    /* Arranges the nav links vertically */
+    display: flex;
+    flex-direction: column;
+}
+
+nav a {
+    /* Nav link styling */
+    text-decoration: none;
+    color: black;
+    font-size: 1.75rem;
+    margin: 0.75rem;
+    border: 1px solid;
+    padding: 0.5rem;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5); /* Used Box Shadow CSS Generator - creates a shadow effect */
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+}
+
+nav a:hover {
+    /* Nav link styling on hover */
+background-color: rgb(255, 215, 0, 0.5); /* Background colour on hover */
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); /* Increases shadow intensity */
+transition: all ease-in 0.3s; /* Adds a smooth transition effect */
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
