@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
+import logo from '../images/logo.png';
 
 
 export default function HomePage() {
 
     return <>
-        <h1>
-            Sketch Squad!
-        </h1>
-
-        <Link to={"/GamePage"}>Start Game</Link>
-        <Link to={"/AboutPage"}>About</Link>
+        <main>
+            <img src={logo} alt="sketch off logo" />
+            <nav>
+                <Link to={"/GamePage"}>Start Game</Link>
+                <Link to={"/AboutPage"}>About</Link>
+            </nav>
+        </main>
     </>
 
 }
