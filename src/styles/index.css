@@ -2,9 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
 
 
+html.dark-mode {
+  filter: invert(1) opacity(90%); /* Opacity makes it a bit less harsh */
+}
+
 body {
   margin: 0;
-  min-height: 100vh; /* Ensures body takes minimum full height of the viewport */
+  min-height: 100dvh; /* Ensures body takes minimum full height of the viewport */
   /* Centres content horizontally and vertically */
   display: flex;
   flex-direction: column;

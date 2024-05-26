@@ -13,21 +13,25 @@ nav {
     flex-direction: column;
 }
 
-nav a {
+nav a, button {
     /* Nav link styling */
     text-decoration: none;
     color: black;
+    background-color: #FFFCEB;
+    font-family: "Cabin Sketch", sans-serif; /* Custom font */
+    font-weight: 700;
     font-size: 1.25rem;
     margin: 0.75rem;
     border: 1px solid;
     padding: 0.5rem;
     border-radius: 25px;
+    cursor: pointer;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5); /* Used Box Shadow CSS Generator - creates a shadow effect */
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
 }
 
-nav a:hover {
+nav a:hover, button:hover {
     /* Nav link styling on hover */
 background-color: rgb(255, 215, 0, 0.5); /* Background colour on hover */
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); /* Increases shadow intensity */
@@ -38,14 +42,14 @@ transition: all ease-in 0.3s; /* Adds a smooth transition effect */
 
 /* Tablet - 768px up to 1024px */
 @media screen and (min-width: 768px){
-    nav a {
+    nav a, button {
         font-size: 1.5rem;
     }
 }    
 
 /* Desktop - 1024px and above */
 @media screen and (min-width: 1024px){
-    nav a {
+    nav a, button {
         font-size: 1.75rem;
     }
 } 
