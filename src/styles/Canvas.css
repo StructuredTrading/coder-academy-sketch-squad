@@ -24,6 +24,11 @@
     justify-content: space-around;
 }
 
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
 .custom-canvas{
     justify-content: center;
 }

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import "../styles/Canvas.css";
+import { DarkModeToggleButton } from "../components/DarkModeToggleButton";
 
 export default function Canvas() {
     const canvasRef = useRef(null);
@@ -56,6 +57,7 @@ export default function Canvas() {
         <div class="canvas-container">
             <div class="tools">
                 <h1>Tools</h1>
+                <DarkModeToggleButton />
                 <div class="draw-erase">
                     <button type="button" class="pen-button" disabled={!eraseMode} onClick={handlePenClick}>Pen</button>
                     <button type="button" class="eraser-button" disabled={eraseMode} onClick={handleEraserClick}>Eraser</button>
