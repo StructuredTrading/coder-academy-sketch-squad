@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import "../styles/Canvas.css";
 import { DarkModeToggleButton } from "../components/DarkModeToggleButton";
+import getRandomPrompt from "../functions/drawingPrompts";
 
 export default function Canvas() {
     const canvasRef = useRef(null);
@@ -10,6 +11,13 @@ export default function Canvas() {
     const [eraserWidth, setEraserWidth] = useState(10);
     const [strokeColor, setStrokeColor] = useState("#000000");
     const [canvasColor, setCanvasColor] = useState("#ffffff");
+
+    const [prompt, setPrompt] = useState({ category: '', word: '' });
+
+    useEffect(() => {
+        const newPrompt = getRandomPrompt();
+        setPrompt(newPrompt);
+    }, []);
 
     const handleEraserClick = () => {
         setEraseMode(true);
@@ -87,6 +95,10 @@ export default function Canvas() {
                     <button type="button" class="redo-button" onClick={handleRedoClick}>Redo</button>
                     <button type="button" class="clear-button" onClick={handleClearClick}>Clear</button>
                     <button type="button" class="reset-button" onClick={handleResetClick}>Reset</button>
+                </div>
+                <div>
+                    <h1>Draw this word: {prompt.word}</h1>
+                    <p>Category: {prompt.category}</p>
                 </div>
             </div>
         <ReactSketchCanvas
