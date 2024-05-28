@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import "../styles/Canvas.css";
 import { DarkModeToggleButton } from "../components/DarkModeToggleButton";
-import getRandomPrompt from "../functions/drawingPrompts";
+import getRandomPrompt from "../functions/DrawingPrompts";
+import Timer from "./Timer";
 
 export default function Canvas() {
     const canvasRef = useRef(null);
@@ -18,6 +19,10 @@ export default function Canvas() {
         const newPrompt = getRandomPrompt();
         setPrompt(newPrompt);
     }, []);
+
+    const handleTimeUp = () => {
+        alert('Time is up!');
+      };
 
     const handleEraserClick = () => {
         setEraseMode(true);
@@ -99,6 +104,10 @@ export default function Canvas() {
                 <div>
                     <h1>Draw this word: {prompt.word}</h1>
                     <p>Category: {prompt.category}</p>
+                </div>
+                <div>
+                    <h1>Timer Example</h1>
+                    <Timer initialSeconds={30} onTimeUp={handleTimeUp} />
                 </div>
             </div>
         <ReactSketchCanvas
