@@ -1,0 +1,50 @@
+.canvas-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 60dvh;
+    width: 100dvw;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.tools, .custom-canvas {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    max-width: 50%;
+    box-sizing: border-box;
+}
+
+.tools {
+    padding: 1rem 2rem;
+    gap: 2rem;
+    justify-content: space-around;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.custom-canvas{
+    justify-content: center;
+}
+
+.adjustable-sliders, 
+.colour-options {
+    display: flex;
+    gap: 1rem;
+}
+
+.pen-stroke-width, 
+.eraser-stroke-width,
+.pen-colour,
+.canvas-colour {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
