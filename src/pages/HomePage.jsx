@@ -12,6 +12,7 @@ export default function HomePage() {
             <nav>
                 <Link to={"/play"}>Start Game</Link>
                 <Link to={"/about"}>About</Link>
+                <Link to={"/lobby"}>Find Game</Link>
                 <DarkModeToggleButton />
             </nav>
         </main>
