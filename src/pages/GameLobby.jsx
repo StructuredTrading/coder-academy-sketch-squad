@@ -66,11 +66,8 @@ export default function GameLobby() {
 
     return(
         <div>
-            <div>
-                <h1>Host Canavas</h1>
-            </div>
-            <div>
-                <h1>Peer Canvas</h1>
+            <div className="lobbyHeader">
+                <h1>Connect to a game lobby</h1>
             </div>
             <div>
                 {Object.keys(users).map(key => {
