@@ -22,6 +22,3 @@ export default function getRandomPrompt() {
     
     return { category: randomCategory, word: randomWord };
 }
-
-// Example of using the function
-console.log(getRandomPrompt());

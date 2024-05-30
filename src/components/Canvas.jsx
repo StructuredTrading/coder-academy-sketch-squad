@@ -21,7 +21,8 @@ export default function Canvas() {
     }, []);
 
     const handleTimeUp = () => {
-        alert('Time is up!');
+        // alert('Time is up!');
+        console.log('Time is up!');
       };
 
     const handleEraserClick = () => {
