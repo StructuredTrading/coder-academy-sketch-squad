@@ -1,4 +1,5 @@
 import { useDarkModeData, useDarkModeDispatch } from "../contexts/darkModeContext";
+import playButtonSound from "../utils/playSound";
 
 export function DarkModeToggleButton(){
 
@@ -6,7 +7,10 @@ export function DarkModeToggleButton(){
 	let darkModeDispatch = useDarkModeDispatch();
 
 	return(
-		<button onClick={() => darkModeDispatch(!darkModeData)}>
+		<button onClick={() => {
+			darkModeDispatch(!darkModeData);
+			playButtonSound();
+			}}>
 			Toggle Theme
 		</button>
 	)
