@@ -2,13 +2,15 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Center content vertically */
     align-items: center;
     flex: 1;
     flex-wrap: wrap;
     padding: 1rem;
     gap: 1rem;
-    margin: 2rem 5rem;
+    margin: auto;
+    max-width: 800px; 
+    min-height: 100vh; 
 }
 
 .main-content {

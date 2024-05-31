@@ -7,7 +7,7 @@ import AfterGameCountdown from "../components/AfterGameCountdown";
 import DrawingPrompt from "../components/DrawingPrompt"; // Import DrawingPrompt component
 
 export default function GamePage() {
-    const [eraseMode, setEraseMode] = useState(false);
+    const [eraseMode, setEraseMode] = useState(true);
     const [strokeWidth, setStrokeWidth] = useState(5);
     const [eraserWidth, setEraserWidth] = useState(10);
     const [strokeColor, setStrokeColor] = useState("#000000");
@@ -35,10 +35,12 @@ export default function GamePage() {
 
     const handleEraserClick = () => {
         setEraseMode(true);
+        canvasRef.current.eraseMode(true);
     };
 
     const handlePenClick = () => {
         setEraseMode(false);
+        canvasRef.current.eraseMode(false);
     };
 
     const handleUndoClick = () => {

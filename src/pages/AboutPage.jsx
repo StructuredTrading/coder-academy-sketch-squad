@@ -28,7 +28,7 @@ export default function AboutPage() {
                     <h3>Explore More</h3>
                     <p>Interested in seeing more about how Sketch Off was built or want to connect with us? Check out our resources below:</p>
                 </section>
-                <a href="https://github.com/StructuredTrading/coder-academy-sketch-squad" target="_blank" onClick={playButtonSound} onMouseEnter={playButtonHoverSound}>View the GitHub Repo</a>
+                <a href="https://github.com/StructuredTrading/coder-academy-sketch-squad">View the GitHub Repo</a>
             </div>
             <footer>
                 <Link to="/" onClick={playButtonSound} onMouseEnter={playButtonHoverSound}>Go home</Link>
