@@ -3,7 +3,7 @@ import { ReactSketchCanvas } from "react-sketch-canvas";
 import "../styles/Canvas.css";
 import { DarkModeToggleButton } from "../components/DarkModeToggleButton";
 import { forwardRef, useImperativeHandle } from "react";
-import playButtonSound from '../utils/playSound.js';
+import { playButtonSound, playButtonHoverSound } from '../utils/playSound.js';
 
 const Canvas = forwardRef(({ strokeWidth, eraserWidth, strokeColor, canvasColor, setEraseMode, eraseMode, handleClearClick, handleUndoClick, handleRedoClick, handlePenClick, handleEraserClick, handleStrokeWidthChange, handleEraserWidthChange, handleStrokeColorChange, handleCanvasColorChange }, ref) => {
     const canvasRef = useRef(null);
@@ -19,18 +19,18 @@ const Canvas = forwardRef(({ strokeWidth, eraserWidth, strokeColor, canvasColor,
         <div className="canvas-container">
             <div className="tools">
                 <h1>Tools</h1>
-                <DarkModeToggleButton onClick={playButtonSound} />
+                <DarkModeToggleButton />
                 <div className="draw-erase">
 
                     <button type="button" className="pen-button" disabled={!eraseMode} onClick={(e) => {
                         handlePenClick(); 
                         playButtonSound();
-                    }}>Pen</button>
+                    }} onMouseEnter={playButtonHoverSound}>Pen</button>
 
                     <button type="button" className="eraser-button" disabled={eraseMode} onClick={(e) => {
                         handleEraserClick();
                         playButtonSound();
-                    }}>Eraser</button>
+                    }} onMouseEnter={playButtonHoverSound}>Eraser</button>
 
                 </div>
                 <div className="adjustable-sliders">
@@ -47,31 +47,31 @@ const Canvas = forwardRef(({ strokeWidth, eraserWidth, strokeColor, canvasColor,
                     <div className="pen-colour">
                         <label htmlFor="strokeColor">Pen colour</label>
                         <input type="color" value={strokeColor} onChange={(e) => {
-                            handleStrokeColorChange();
+                            handleStrokeColorChange(e);
                             playButtonSound();
-                        }} />
+                        }} onMouseEnter={playButtonHoverSound} />
                     </div>
                     <div className="canvas-colour">
                         <label htmlFor="canvasColor">Canvas colour</label>
                         <input type="color" value={canvasColor} onChange={(e) => {
-                            handleCanvasColorChange();
+                            handleCanvasColorChange(e);
                             playButtonSound();
-                        }} />
+                        }} onMouseEnter={playButtonHoverSound} />
                     </div>
                 </div>
                 <div className="quick-action-buttons">
                     <button type="button" className="undo-button" onClick={(e) => {
                         handleUndoClick();
                         playButtonSound();
-                    }}>Undo</button>
+                    }} onMouseEnter={playButtonHoverSound}>Undo</button>
                     <button type="button" className="redo-button" onClick={(e) => {
                         handleRedoClick();
                         playButtonSound();
-                    }}>Redo</button>
+                    }} onMouseEnter={playButtonHoverSound}>Redo</button>
                     <button type="button" className="clear-button" onClick={(e) => {
                         handleClearClick();
                         playButtonSound();
-                    }}>Clear</button>
+                    }} onMouseEnter={playButtonHoverSound}>Clear</button>
                 </div>
             </div>
             <ReactSketchCanvas
