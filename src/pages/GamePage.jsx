@@ -15,6 +15,7 @@ export default function GamePage() {
     const [timerKey, setTimerKey] = useState(0); // To force re-render the timer
     const [countdownComplete, setCountdownComplete] = useState(false);
     const [showAfterGameCountdown, setShowAfterGameCountdown] = useState(false); // New state for AfterGameCountdown
+    const [promptKey, setPromptKey] = useState(0); // Key to trigger prompt re-fetching
 
     const canvasRef = useRef(null); // Reference to the canvas component
 
@@ -29,6 +30,7 @@ export default function GamePage() {
     const handleAfterGameCountdownEnd = async () => {
         canvasRef.current.clearCanvas(); // Clear the canvas
         setTimerKey(prevKey => prevKey + 1); // Reset the timer
+        setPromptKey(prevKey => prevKey + 1); // Trigger new prompt fetching
         setCountdownComplete(false); // Restart the countdown
         setShowAfterGameCountdown(false); // Hide AfterGameCountdown
     };
@@ -74,7 +76,7 @@ export default function GamePage() {
     return (
         <main>
             <div className="game-controls">
-                <DrawingPrompt /> {/* Use DrawingPrompt component */}
+                <DrawingPrompt keyProp={promptKey}/> {/* Use DrawingPrompt component */}
                 <div>
                     <h1>Timer</h1>
                     {!countdownComplete && !showAfterGameCountdown ? (
