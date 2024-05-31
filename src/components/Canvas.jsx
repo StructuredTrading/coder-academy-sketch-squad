@@ -1,87 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import "../styles/Canvas.css";
 import { DarkModeToggleButton } from "../components/DarkModeToggleButton";
-import getRandomPrompt from "../functions/DrawingPrompts";
-import Countdown from "./Countdown";
-import Timer from "./Timer";
-import AfterGameCountdown from "./AfterGameCountdown"; // Update the import path
+import { forwardRef, useImperativeHandle } from "react";
 
-export default function Canvas() {
+const Canvas = forwardRef(({ strokeWidth, eraserWidth, strokeColor, canvasColor, setEraseMode, eraseMode, handleClearClick, handleUndoClick, handleRedoClick, handlePenClick, handleEraserClick, handleStrokeWidthChange, handleEraserWidthChange, handleStrokeColorChange, handleCanvasColorChange }, ref) => {
     const canvasRef = useRef(null);
-    const [eraseMode, setEraseMode] = useState(false);
-    const [strokeWidth, setStrokeWidth] = useState(5);
-    const [eraserWidth, setEraserWidth] = useState(10);
-    const [strokeColor, setStrokeColor] = useState("#000000");
-    const [canvasColor, setCanvasColor] = useState("#ffffff");
-    const [prompt, setPrompt] = useState({ category: '', word: '' });
-    const [timerKey, setTimerKey] = useState(0); // To force re-render the timer
-    const [countdownComplete, setCountdownComplete] = useState(false);
-    const [showAfterGameCountdown, setShowAfterGameCountdown] = useState(false); // New state for AfterGameCountdown
 
-    useEffect(() => {
-        const newPrompt = getRandomPrompt();
-        setPrompt(newPrompt);
-    }, []);
-
-    const handleTimeUp = () => {
-        setShowAfterGameCountdown(true); // Show AfterGameCountdown when time is up
-    };
-
-    const handleCountdownComplete = () => {
-        setCountdownComplete(true);
-    };
-
-    const handleAfterGameCountdownEnd = () => {
-        const newPrompt = getRandomPrompt();
-        setPrompt(newPrompt);
-        canvasRef.current.clearCanvas(); // Clear the canvas
-        setTimerKey(prevKey => prevKey + 1); // Reset the timer
-        setCountdownComplete(false); // Restart the countdown
-        setShowAfterGameCountdown(false); // Hide AfterGameCountdown
-    };
-
-    const handleEraserClick = () => {
-        setEraseMode(true);
-        canvasRef.current.eraseMode(true);
-    };
-
-    const handlePenClick = () => {
-        setEraseMode(false);
-        canvasRef.current.eraseMode(false);
-    };
-
-    const handleUndoClick = () => {
-        canvasRef.current.undo();
-    };
-
-    const handleRedoClick = () => {
-        canvasRef.current.redo();
-    };
-
-    const handleClearClick = () => {
-        canvasRef.current.clearCanvas();
-    };
-
-    const handleResetClick = () => {
-        canvasRef.current.resetCanvas();
-    };
-
-    const handleStrokeWidthChange = (event) => {
-        setStrokeWidth(+event.target.value);
-    };
-
-    const handleEraserWidthChange = (event) => {
-        setEraserWidth(+event.target.value);
-    };
-
-    const handleStrokeColorChange = (event) => {
-        setStrokeColor(event.target.value);
-    };
-
-    const handleCanvasColorChange = (event) => {
-        setCanvasColor(event.target.value);
-    };
+    useImperativeHandle(ref, () => ({
+        clearCanvas: () => canvasRef.current.clearCanvas(),
+        undo: () => canvasRef.current.undo(),
+        redo: () => canvasRef.current.redo(),
+        eraseMode: (mode) => canvasRef.current.eraseMode(mode),
+    }));
 
     return (
         <div className="canvas-container">
@@ -116,21 +47,6 @@ export default function Canvas() {
                     <button type="button" className="undo-button" onClick={handleUndoClick}>Undo</button>
                     <button type="button" className="redo-button" onClick={handleRedoClick}>Redo</button>
                     <button type="button" className="clear-button" onClick={handleClearClick}>Clear</button>
-                    <button type="button" className="reset-button" onClick={handleResetClick}>Reset</button>
-                </div>
-                <div>
-                    <h1>Draw this word: {prompt.word}</h1>
-                    <p>Category: {prompt.category}</p>
-                </div>
-                <div>
-                    <h1>Timer Example</h1>
-                    {!countdownComplete && !showAfterGameCountdown ? (
-                        <Countdown onCountdownComplete={handleCountdownComplete} />
-                    ) : showAfterGameCountdown ? (
-                        <AfterGameCountdown onCountdownEnd={handleAfterGameCountdownEnd} />
-                    ) : (
-                        <Timer key={timerKey} initialSeconds={30} onTimeUp={handleTimeUp} />
-                    )}
                 </div>
             </div>
             <ReactSketchCanvas
@@ -143,4 +59,6 @@ export default function Canvas() {
             />
         </div>
     );
-}
+});
+
+export default Canvas;
