@@ -1,78 +1,42 @@
-/* General styles */
+@import "../styles/Buttons.css";
+
 .page-container {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    margin: 2rem auto 0 auto; 
-    max-width: 1400px; /* Limit the width of the container */
-}
-
-main {
+    justify-content: center;
+    align-items: center;
     flex: 1;
-}
-
-section {
-    margin-bottom: 2rem;
-}
-
-h1, h2, h3, h4, p {
-    margin: 0 0 1rem 0;
-}
-
-.developer-info {
-    display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    margin: 1rem;
+    padding: 1rem;
+    gap: 1rem;
 }
 
-.developer-info div {
-    flex: 1;
-
-}
-
-.developer-info ul {
-    list-style: none;
+.page-container h1 {
+    margin: 0;
     padding: 0;
+    font-size: 2rem;
 }
 
-.developer-info li {
-    padding: 5px;
+.page-container p {
+    font-size: 1rem;
 }
 
-.developer-info a, section a {
-    text-decoration: none;
-    color: black;
-    text-decoration: underline;
-}
-
-.developer-info a:hover, section a:hover{
-    text-decoration: none;
-    background-color: rgb(255, 215, 0, 0.5);
-    border-radius: 12px;
-    padding: 5px 10px;
-    border: 1px solid black;
-    transition: all 0.2s ease-in;
-}
-
-footer {
-    margin-top: 1rem;
-    text-align: center;
-}
-
-/* Responsive styles */
-@media screen and (min-width: 768px) {
+/* Tablet - 768px up to 1024px */
+@media screen and (min-width: 768px){
     .page-container h1 {
         font-size: 2.25rem;
     }
     .page-container p {
         font-size: 1.25rem;
+        width: 80%
     }
-}
+}    
 
-@media screen and (min-width: 1024px) {
+/* Desktop - 1024px and above */
+@media screen and (min-width: 1024px){
+
     .page-container h1 {
         font-size: 2.5rem;
     }
-}
+} 
