@@ -3,8 +3,9 @@ import { ReactSketchCanvas } from "react-sketch-canvas";
 import "../styles/Canvas.css";
 import { DarkModeToggleButton } from "../components/DarkModeToggleButton";
 import getRandomPrompt from "../functions/DrawingPrompts";
-import Timer from "./Timer";
 import Countdown from "./Countdown";
+import Timer from "./Timer";
+import AfterGameCountdown from "./AfterGameCountdown"; // Update the import path
 
 export default function Canvas() {
     const canvasRef = useRef(null);
@@ -16,6 +17,7 @@ export default function Canvas() {
     const [prompt, setPrompt] = useState({ category: '', word: '' });
     const [timerKey, setTimerKey] = useState(0); // To force re-render the timer
     const [countdownComplete, setCountdownComplete] = useState(false);
+    const [showAfterGameCountdown, setShowAfterGameCountdown] = useState(false); // New state for AfterGameCountdown
 
     useEffect(() => {
         const newPrompt = getRandomPrompt();
@@ -23,15 +25,20 @@ export default function Canvas() {
     }, []);
 
     const handleTimeUp = () => {
+        setShowAfterGameCountdown(true); // Show AfterGameCountdown when time is up
+    };
+
+    const handleCountdownComplete = () => {
+        setCountdownComplete(true);
+    };
+
+    const handleAfterGameCountdownEnd = () => {
         const newPrompt = getRandomPrompt();
         setPrompt(newPrompt);
         canvasRef.current.clearCanvas(); // Clear the canvas
         setTimerKey(prevKey => prevKey + 1); // Reset the timer
         setCountdownComplete(false); // Restart the countdown
-    };
-
-    const handleCountdownComplete = () => {
-        setCountdownComplete(true);
+        setShowAfterGameCountdown(false); // Hide AfterGameCountdown
     };
 
     const handleEraserClick = () => {
@@ -117,8 +124,10 @@ export default function Canvas() {
                 </div>
                 <div>
                     <h1>Timer Example</h1>
-                    {!countdownComplete ? (
+                    {!countdownComplete && !showAfterGameCountdown ? (
                         <Countdown onCountdownComplete={handleCountdownComplete} />
+                    ) : showAfterGameCountdown ? (
+                        <AfterGameCountdown onCountdownEnd={handleAfterGameCountdownEnd} />
                     ) : (
                         <Timer key={timerKey} initialSeconds={30} onTimeUp={handleTimeUp} />
                     )}
