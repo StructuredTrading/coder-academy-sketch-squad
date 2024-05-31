@@ -1,5 +1,3 @@
-@import "../styles/Buttons.css";
-
 .page-container {
     box-sizing: border-box;
     display: flex;
@@ -10,33 +8,54 @@
     flex-wrap: wrap;
     padding: 1rem;
     gap: 1rem;
+    margin: 2rem 5rem;
 }
 
-.page-container h1 {
-    margin: 0;
+.main-content {
+    flex: 1;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h1, h2, h3, h4, p {
+    margin: 0 0 1rem 0;
+}
+
+.developer-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.developer-info div {
+    flex: 1;
+    min-width: 200px; /* Ensure minimum width for columns */
+}
+
+.developer-info ul {
+    list-style: none;
     padding: 0;
-    font-size: 2rem;
 }
 
-.page-container p {
-    font-size: 1rem;
+footer {
+    margin-top: 2rem;
+    text-align: center;
 }
 
-/* Tablet - 768px up to 1024px */
-@media screen and (min-width: 768px){
+/* Responsive styles */
+@media screen and (min-width: 768px) {
     .page-container h1 {
         font-size: 2.25rem;
     }
     .page-container p {
         font-size: 1.25rem;
-        width: 80%
     }
-}    
+}
 
-/* Desktop - 1024px and above */
-@media screen and (min-width: 1024px){
-
+@media screen and (min-width: 1024px) {
     .page-container h1 {
         font-size: 2.5rem;
     }
-} 
+}
