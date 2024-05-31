@@ -1,5 +1,5 @@
 import { useDarkModeData, useDarkModeDispatch } from "../contexts/darkModeContext";
-import playButtonSound from "../utils/playSound";
+import { playButtonSound, playButtonHoverSound } from "../utils/playSound";
 
 export function DarkModeToggleButton(){
 
@@ -10,7 +10,7 @@ export function DarkModeToggleButton(){
 		<button onClick={() => {
 			darkModeDispatch(!darkModeData);
 			playButtonSound();
-			}}>
+			}} onMouseEnter={playButtonHoverSound}>
 			Toggle Theme
 		</button>
 	)

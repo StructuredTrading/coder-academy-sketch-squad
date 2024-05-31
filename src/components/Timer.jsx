@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { playClockCountdownSound } from '../utils/playSound';
 
 export default function Timer({ initialSeconds = 30, onTimeUp }) {
     const [seconds, setSeconds] = useState(initialSeconds);
@@ -8,6 +9,9 @@ export default function Timer({ initialSeconds = 30, onTimeUp }) {
     }, [initialSeconds]);
 
     useEffect(() => {
+        if (seconds == 15) {
+            playClockCountdownSound();
+        }
         if (seconds > 0) {
             const interval = setInterval(() => {
                 setSeconds((prevSeconds) => prevSeconds - 1);
